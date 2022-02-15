@@ -3,6 +3,6 @@
 
 **Member:**
 
-Ruixin Zhang: jason666@my.yorku.ca, Sec A, Lab 01.
+Ruixin Zhang: jason666@my.yorku.ca, Sec N, Lab 02.
 
-Wuyang Dai: ddai2002@my.yorku.ca, Sec A, Lab 03.
+Wuyang Dai: ddai2002@my.yorku.ca, Sec M, Lab 02.
