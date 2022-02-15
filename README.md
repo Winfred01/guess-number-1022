@@ -6,3 +6,5 @@
 Ruixin Zhang: jason666@my.yorku.ca, Sec N, Lab 02.
 
 Wuyang Dai: ddai2002@my.yorku.ca, Sec M, Lab 02.
+
+Chenxi Liu: w1nfred@my.yorku.ca, Sec M, Lab 03.
