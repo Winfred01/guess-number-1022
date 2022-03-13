@@ -14,4 +14,8 @@ public class MainActivity extends AppCompatActivity {
     public void setter(){
         System.out.println("haha");
     }
+    public void testing(){
+        int haha = 0;
+        System.out.println(haha);
+    }
 }
