@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">What_Number_I_am_Thinking_of</string>
+    <string name="testing">测试</string>
+    <string name="string_testing">Testing</string>
+    <string name="back">Back</string>
+    <string name="guess_a_number">Guess a Number ??</string>
+    <string name="the_number_interval_is">The number interval is:</string>
+    <string name="_00_to_00">00 to 00</string>
+    <string name="you_have_8_attempts_left">You have 8 attempts left</string>
+    <string name="todo">TODO</string>
+    <string name="enter_your_number_here">Enter your number here</string>
+    <string name="what_number_i_am_thinking_of">What Number I am Thinking of ?</string>
+    <string name="match_history">Match History</string>
+    <string name="ruixin_zhang_wuyang_dai_chenxi_liu">© Ruixin Zhang, Wuyang Dai, Chenxi Liu</string>
+    <string name="start_game">Start Game</string>
+    <string name="todo2">TODO</string>
+    <string name="back2">Back</string>
 </resources>
