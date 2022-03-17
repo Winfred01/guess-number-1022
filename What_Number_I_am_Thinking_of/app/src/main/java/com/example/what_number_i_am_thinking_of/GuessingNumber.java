@@ -2,19 +2,20 @@ package com.example.what_number_i_am_thinking_of;
 
 public class GuessingNumber {
 
-    public GenerateNumber() {
+    public static int GenerateNumber() {
         //生成随机数
-        return number;
+        return 111;
     }
 
-    public CompareNumber(int number) {
+    public static boolean CompareNumber(int number) {
         //比较随机数，
         //返回结果
-        return result;
+        return true;
     }
 
-    public Result(String result) {
+    public static int Result(String result) {
         //返回结果
+        return 11;
     }
 
     public void getGuess(){
