@@ -45,8 +45,7 @@
         app:layout_constraintHorizontal_bias="0.03"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="ImageContrastCheck"
-        tools:srcCompat="@drawable/guess_the_number" />
+        tools:ignore="ImageContrastCheck" />
 
     <TextView
         android:id="@+id/textView5"
