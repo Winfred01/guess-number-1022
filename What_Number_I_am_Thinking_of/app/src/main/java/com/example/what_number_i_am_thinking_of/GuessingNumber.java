@@ -1,23 +1,70 @@
 package com.example.what_number_i_am_thinking_of;
 
-public class GuessingNumber {
 
-    public static int GenerateNumber() {
+import static java.lang.Integer.parseInt;
+
+public class GuessingNumber {
+    public int answer;
+    public int number;
+    public int result;
+
+    public int GenerateNumber(String difficulty) {
         //生成随机数
-        return 111;
+        int max=30;
+        if (difficulty.equals("easy")){
+            max=30;
+        }
+        if (difficulty.equals("Normal")){
+            max=60;//0-60
+        }
+        if (difficulty.equals("hard")){
+            max=100;//0-100
+        }
+        answer=parseInt(String.valueOf(Math.random()*max+1),10);
+        return answer;
     }
 
-    public static boolean CompareNumber(int number) {
+    public void CompareNumber(int Number) {
         //比较随机数，
         //返回结果
-        return true;
+        this.number=Number;
+        if(answer==number){
+            result=0;
+        }
+        else{
+            result=answer-number;//小于0太小， 大于0太大
+        }
+        Result(result);
     }
 
-    public static int Result(String result) {
+    public String Result(int result) {
         //返回结果
-        return 11;
+        String Result="erro";
+        if(result==0) {
+            Result = "YOU WIN"; //胜利！
+        }
+        if(result<0){
+            if(result>-10){
+                Result= "Close";
+            }
+            else{
+                Result= "Try a smaller number";
+            }
+        }
+        if(result>0){
+            if(result<10){
+                Result= "Close";
+            }
+            else{
+                Result= "Try a biger number";
+            }
+        }
+        return Result;
     }
 
+    public static void run(){
+
+    }
     public void getGuess(){
         //读取输入值
     }
