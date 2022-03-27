@@ -48,7 +48,7 @@ public class Gaming extends AppCompatActivity {
         /*Wrong number pop op*/
         AlertDialog.Builder prompt = new AlertDialog.Builder(Gaming.this);
         prompt.setTitle("Oops, wrong number");
-        prompt.setMessage("message from the result");//fill it out
+        //prompt.setMessage("message from the result");//fill it out
         prompt.setCancelable(false);//remain show
         prompt.setPositiveButton("Try again", new DialogInterface.OnClickListener() {
             @Override
@@ -56,23 +56,40 @@ public class Gaming extends AppCompatActivity {
                 //do nothing
             }
         });
-        AlertDialog wrongNumber = prompt.create();
+        //AlertDialog wrongNumber = prompt.create();
         //wrongNumber.show();
         /*Right number pop up*/
-        AlertDialog.Builder right = new AlertDialog.Builder(Gaming.this);
-        right.setTitle("Congratulations");
-        right.setMessage("You guess the right number");
-        right.setCancelable(false);
-        right.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+        AlertDialog.Builder winLose = new AlertDialog.Builder(Gaming.this);
+        //right.setTitle("Congratulations");
+        //right.setMessage("You guess the right number");
+        winLose.setCancelable(false);
+        winLose.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 Intent intent = new Intent(Gaming.this, MainActivity.class);
                 startActivity(intent);
             }
         });
-        AlertDialog rightNumber = right.create();
+        //AlertDialog rightNumber = right.create();
         //rightNumber.show();
         //-----------------------------------------------------------------------
+        if(s.equals("Close") || s.equals("Try a smaller number")){
+            prompt.setMessage(s);
+            AlertDialog wrongNumber = prompt.create();
+            wrongNumber.show();
+        }
+        else if(s.equals("You LOSE")){
+            winLose.setTitle("GG");
+            winLose.setMessage("GG");
+            AlertDialog winLosePopup = winLose.create();
+            winLosePopup.show();
+        }
+        else if(s.equals("YOU WIN")){
+            winLose.setTitle("nb");
+            winLose.setMessage("nb");
+            AlertDialog rightNumber = winLose.create();
+            rightNumber.show();
+        }
         //下面这行用来找地方输出s，上面几行不用动
         //((TextView)findViewById(R.id.textView7)).setText(s);
     }
