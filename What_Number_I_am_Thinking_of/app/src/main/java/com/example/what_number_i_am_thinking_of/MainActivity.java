@@ -75,8 +75,20 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(intent);*/
                     }
                 });
+                selectDifficulty.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.cancel();;
+                    }
+                });
                 AlertDialog diffDialog = selectDifficulty.create();
                 diffDialog.show();
+            }
+        });
+        enterName.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.cancel();
             }
         });
         AlertDialog dialog = enterName.create();
