@@ -74,7 +74,7 @@ public class GuessingNumber {
     public void setCounter(){
         counter+=1;
         if (counter==10){//10次就输
-            Result=
+            //Result=
         }
     }
 

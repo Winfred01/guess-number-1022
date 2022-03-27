@@ -60,8 +60,23 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         checkedItem[0] = i;
-                        GuessingNumber g = new GuessingNumber();
-                        g.setDifficulty(difficulty[i]);
+                        //GuessingNumber g = new GuessingNumber();
+
+                        GuessingNumber guess = new GuessingNumber();
+                        guess.setDifficulty(difficulty[i]);
+                        if (guess.getDifficulty().equals("Easy")){
+                            guess.GenerateNumber("Easy");
+                            ((TextView)findViewById(R.id.interval)).setText("0 to 30");
+                        }
+                        else if (guess.getDifficulty().equals("Normal")){
+                            guess.GenerateNumber("Normal");
+                            ((TextView)findViewById(R.id.interval)).setText("0 to 60");
+                        }
+                        else if (guess.getDifficulty().equals("Hard")){
+                            guess.GenerateNumber("Hard");
+                            ((TextView)findViewById(R.id.interval)).setText("0 to 100");
+                        }
+
                         try {
                             writeMatchHistory("Difficulty: " + difficulty[i]);
                         } catch (IOException e) {
