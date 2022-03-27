@@ -1,4 +1,5 @@
 package com.example.what_number_i_am_thinking_of;
+import java.io.*;
 
 
 import static java.lang.Integer.parseInt;
@@ -68,4 +69,18 @@ public class GuessingNumber {
     public void getGuess(){
         //读取输入值
     }
+    //历史记录
+    /*public static void writeMatchHistory(String message) throws IOException {
+        //File HistoryFile = new File("C:\\Users\\zhang\\OneDrive\\Guessing_Number\\What_Number_I_am_Thinking_of\\app\\History.txt");
+        try {
+            FileWriter fw = new FileWriter("History.txt", true);
+            BufferedWriter bw = new BufferedWriter(fw);
+            bw.write(message);
+            bw.newLine();
+            bw.close();
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+        }
+
+    }*/
 }
