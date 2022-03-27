@@ -19,18 +19,18 @@ public class Gaming extends AppCompatActivity {
         Intent getDiff = getIntent();
         String diff = getDiff.getStringExtra("message_key");
         GuessingNumber guess = new GuessingNumber();
-        TextView interval = (TextView)findViewById(R.id.interval);
+        TextView interval = (TextView) findViewById(R.id.interval);
         //interval.setText(diff);
         if (diff.equals("Easy")){
-            guess.GenerateNumber("Easy");
+            //guess.GenerateNumber("Easy");
             interval.setText("0 to 30");
         }
         else if (diff.equals("Normal")){
-            guess.GenerateNumber("Normal");
+            //guess.GenerateNumber("Normal");
             interval.setText("0 to 60");
         }
         else if (diff.equals("Hard")){
-            guess.GenerateNumber("Hard");
+            //guess.GenerateNumber("Hard");
             interval.setText("0 to 100");
         }
     }
