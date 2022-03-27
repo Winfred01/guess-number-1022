@@ -1,8 +1,10 @@
 package com.example.what_number_i_am_thinking_of;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -41,6 +43,36 @@ public class Gaming extends AppCompatActivity {
         int number = (int) Double.parseDouble(gN);
         GuessingNumber guess = new GuessingNumber();
         String s = guess.CompareNumber(number);
+
+        //pop up, 先写出来后面用---------------------------------------------------------
+        /*Wrong number pop op*/
+        AlertDialog.Builder prompt = new AlertDialog.Builder(Gaming.this);
+        prompt.setTitle("Oops, wrong number");
+        prompt.setMessage("message from the result");//fill it out
+        prompt.setCancelable(false);//remain show
+        prompt.setPositiveButton("Try again", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                //do nothing
+            }
+        });
+        AlertDialog wrongNumber = prompt.create();
+        //wrongNumber.show();
+        /*Right number pop up*/
+        AlertDialog.Builder right = new AlertDialog.Builder(Gaming.this);
+        right.setTitle("Congratulations");
+        right.setMessage("You guess the right number");
+        right.setCancelable(false);
+        right.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Intent intent = new Intent(Gaming.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+        AlertDialog rightNumber = right.create();
+        //rightNumber.show();
+        //-----------------------------------------------------------------------
         //下面这行用来找地方输出s，上面几行不用动
         //((TextView)findViewById(R.id.textView7)).setText(s);
     }
