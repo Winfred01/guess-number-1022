@@ -9,6 +9,7 @@ public class GuessingNumber {
     public int number;
     public int result;
     private String difficulty;
+    public int counter=0;
 
     public void setDifficulty(String newDiff){
         this.difficulty = difficulty;
@@ -70,8 +71,16 @@ public class GuessingNumber {
         return Result;
     }
 
+    public void setCounter(){
+        counter+=1;
+        if (counter==10){//10次就输
+            Result=
+        }
+    }
+
     public void submit(int number){  //link to submit button
         CompareNumber(number);
+        setCounter();
     }
     public void getGuess(){
         //读取输入值
