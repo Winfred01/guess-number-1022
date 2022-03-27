@@ -12,7 +12,7 @@ public class GuessingNumber {
     public int counter=0;
 
     public void setDifficulty(String newDiff){
-        this.difficulty = difficulty;
+        this.difficulty = newDiff;
     }
 
     public String getDifficulty(){
@@ -53,6 +53,7 @@ public class GuessingNumber {
             Result = "YOU WIN"; //胜利！
         }
         if(result<0){
+            counter+=1;
             if(result>-10){
                 Result= "Close";
             }
@@ -61,6 +62,7 @@ public class GuessingNumber {
             }
         }
         if(result>0){
+            counter+=1;
             if(result<10){
                 Result= "Close";
             }
@@ -68,19 +70,14 @@ public class GuessingNumber {
                 Result= "Try a biger number";
             }
         }
-        return Result;
-    }
-
-    public void setCounter(){
-        counter+=1;
-        if (counter==10){//10次就输
-            Result=
+        if(counter==10){
+            Result="You LOSE";
         }
+        return Result;
     }
 
     public void submit(int number){  //link to submit button
         CompareNumber(number);
-        setCounter();
     }
     public void getGuess(){
         //读取输入值
