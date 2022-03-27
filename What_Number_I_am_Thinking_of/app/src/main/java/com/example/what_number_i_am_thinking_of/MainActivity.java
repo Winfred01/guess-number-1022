@@ -25,7 +25,7 @@ import java.io.OutputStreamWriter;
 
 public class MainActivity extends AppCompatActivity {
     private TextView displayHistory;
-
+    private String difficulty;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,6 +60,8 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         checkedItem[0] = i;
+                        GuessingNumber g = new GuessingNumber();
+                        g.setDifficulty(difficulty[i]);
                         try {
                             writeMatchHistory("Difficulty: " + difficulty[i]);
                         } catch (IOException e) {

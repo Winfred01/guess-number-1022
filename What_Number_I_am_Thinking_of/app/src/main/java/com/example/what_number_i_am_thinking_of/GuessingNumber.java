@@ -8,17 +8,25 @@ public class GuessingNumber {
     public int answer;
     public int number;
     public int result;
+    private String difficulty;
 
+    public void setDifficulty(String newDiff){
+        this.difficulty = difficulty;
+    }
+
+    public String getDifficulty(){
+        return difficulty;
+    }
     public int GenerateNumber(String difficulty) {
         //生成随机数
         int max=30;
-        if (difficulty.equals("easy")){
+        if (difficulty.equals("Easy")){
             max=30;
         }
         if (difficulty.equals("Normal")){
             max=60;//0-60
         }
-        if (difficulty.equals("hard")){
+        if (difficulty.equals("Hard")){
             max=100;//0-100
         }
         answer=parseInt(String.valueOf(Math.random()*max+1),10);
