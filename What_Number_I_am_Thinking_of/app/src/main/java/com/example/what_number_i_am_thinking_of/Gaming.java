@@ -20,8 +20,8 @@ public class Gaming extends AppCompatActivity {
         String diff = getDiff.getStringExtra("message_key");
         GuessingNumber guess = new GuessingNumber();
         TextView interval = (TextView)findViewById(R.id.interval);
-        interval.setText(diff);
-        /*if (diff.equals("Easy")){
+        //interval.setText(diff);
+        if (diff.equals("Easy")){
             guess.GenerateNumber("Easy");
             interval.setText("0 to 30");
         }
@@ -32,7 +32,7 @@ public class Gaming extends AppCompatActivity {
         else if (diff.equals("Hard")){
             guess.GenerateNumber("Hard");
             interval.setText("0 to 100");
-        }*/
+        }
     }
     public void submitNumber(View v){
         EditText getNumber = (EditText) findViewById(R.id.getNumber);
