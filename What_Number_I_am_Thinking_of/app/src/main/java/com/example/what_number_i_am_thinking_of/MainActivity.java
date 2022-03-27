@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         enterName.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int which) {
-                if (!displayHistory.getText().toString().equals("")){
+                /*if (!displayHistory.getText().toString().equals("")){
                     EditText getName = findViewById(R.id.Name);
                     String name = getName.getText().toString();
                     try {
@@ -51,8 +51,7 @@ public class MainActivity extends AppCompatActivity {
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-                }
-
+                }*/
                 AlertDialog.Builder selectDifficulty = new AlertDialog.Builder(MainActivity.this);
                 selectDifficulty.setTitle("Please select difficulty: ");
                 final String[] difficulty = new String[]{"Easy", "Normal", "Hard"};
@@ -67,13 +66,13 @@ public class MainActivity extends AppCompatActivity {
                         System.out.println(difficulty[i]);
                         setDiff.putExtra("message_key", difficulty[i]);
                         startActivity(setDiff);
-                        try {
+                        /*try {
                             writeMatchHistory("Difficulty: " + difficulty[i]);
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
                         Intent intent = new Intent(MainActivity.this, Gaming.class);
-                        startActivity(intent);
+                        startActivity(intent);*/
                     }
                 });
                 AlertDialog diffDialog = selectDifficulty.create();
@@ -87,15 +86,15 @@ public class MainActivity extends AppCompatActivity {
         //switch to Match History
         Intent intent = new Intent(MainActivity.this, History.class);
         startActivity(intent);
-        displayHistory = findViewById(R.id.MatchHistoryView);
-        try {
+        //displayHistory = findViewById(R.id.MatchHistoryView);
+        /*try {
             if(readFromFile() != null)
             {
                 displayHistory.setText(readFromFile());
             }
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        }*/
     }
 
     public void writeMatchHistory(String message) throws IOException {
@@ -108,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
     }
-    public String readFromFile() throws IOException {
+    /*public String readFromFile() throws IOException {
         String result = "";
         InputStream is = openFileInput("History.txt");
         if(is != null)
@@ -128,5 +127,5 @@ public class MainActivity extends AppCompatActivity {
             result = stringBuilder.toString();
         }
         return result;
-    }
+    }*/
 }
