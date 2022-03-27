@@ -30,7 +30,8 @@ public class GuessingNumber {
         if (difficulty.equals("Hard")){
             max=100;//0-100
         }
-        answer=parseInt(String.valueOf(Math.random()*max+1),10);
+        answer= (int) Math.floor((Math.random() * max) + 1);
+        System.out.println(answer);
     }
 
     public void CompareNumber(int Number) {
