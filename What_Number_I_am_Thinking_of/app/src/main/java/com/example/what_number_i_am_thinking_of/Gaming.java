@@ -34,8 +34,15 @@ public class Gaming extends AppCompatActivity {
             interval.setText("0 to 100");
         }
     }
+
     public void submitNumber(View v){
         EditText getNumber = (EditText) findViewById(R.id.getNumber);
+        String gN = getNumber.getText().toString();
+        int number = (int) Double.parseDouble(gN);
+        GuessingNumber guess = new GuessingNumber();
+        String s = guess.CompareNumber(number);
+        //下面这行用来找地方输出s，上面几行不用动
+        //((TextView)findViewById(R.id.textView7)).setText(s);
     }
     public void toMainPage(View v){
         //switch to main page

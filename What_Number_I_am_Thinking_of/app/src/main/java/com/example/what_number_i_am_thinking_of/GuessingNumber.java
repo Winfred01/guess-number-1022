@@ -1,5 +1,4 @@
 package com.example.what_number_i_am_thinking_of;
-import java.io.*;
 
 
 import static java.lang.Integer.parseInt;
@@ -34,7 +33,7 @@ public class GuessingNumber {
         System.out.println(answer);
     }
 
-    public void CompareNumber(int Number) {
+    public String CompareNumber(int Number) {
         //比较随机数，
         //返回结果
         this.number=Number;
@@ -44,7 +43,7 @@ public class GuessingNumber {
         else{
             result=answer-number;//小于0太小， 大于0太大
         }
-        Result(result);
+        return Result(result);
     }
 
     public String Result(int result) {
