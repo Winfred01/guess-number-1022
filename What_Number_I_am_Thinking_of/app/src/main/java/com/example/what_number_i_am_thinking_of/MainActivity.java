@@ -15,8 +15,6 @@ import android.widget.Toast;
 import java.util.*;
 
 public class MainActivity extends AppCompatActivity {
-    private TextView displayHistory;
-    private String difficulty;
     String getName;
     String getDiff;
 

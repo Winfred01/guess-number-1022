@@ -42,12 +42,12 @@ public class History extends AppCompatActivity {
                     history.append("Your 3rd number is: " + List.get(i) + "\n");
                 }
                 else {
-                    history.append("Your " + i + "th number is: " + List.get(i) + "\n");
+                    history.append("Your " + (i + 1) + "th number is: " + List.get(i) + "\n");
                 }
             }
         }
         else{
-            history.setText("No history available yet");
+            history.setText("No history available yet, play a game to see history");
         }
 
     }
