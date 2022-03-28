@@ -92,7 +92,7 @@
         tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/attempts"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"

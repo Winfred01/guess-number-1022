@@ -13,6 +13,8 @@ import android.widget.TextView;
 
 public class Gaming extends AppCompatActivity {
     int answer;
+    int count = 10;
+
     @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,37 +24,36 @@ public class Gaming extends AppCompatActivity {
         String diff = getDiff.getStringExtra("message_key");
         GuessingNumber guess = new GuessingNumber();
         TextView interval = (TextView) findViewById(R.id.interval);
+        TextView attempt = (TextView) findViewById(R.id.attempts);
         guess.setDifficulty(diff);
         answer = guess.GenerateNumber(guess.getDifficulty());
         System.out.println(answer);
         //interval.setText(diff);
         if (diff.equals("Easy")){
-
-            //guess.GenerateNumber("Easy");
             interval.setText("0 to 30");
         }
         else if (diff.equals("Normal")){
-            //guess.GenerateNumber("Normal");
             interval.setText("0 to 60");
         }
         else if (diff.equals("Hard")){
-            //guess.GenerateNumber("Hard");
             interval.setText("0 to 100");
         }
+        attempt.setText("You have " + count + " attempt(s) left");
     }
 
+    @SuppressLint("SetTextI18n")
     public void submitNumber(View v){
         EditText getNumber = (EditText) findViewById(R.id.getNumber);
+        TextView attempt = (TextView) findViewById(R.id.attempts);
         String gN = getNumber.getText().toString();
         int number = Integer.parseInt(gN);
         GuessingNumber guess = new GuessingNumber();
         String s = guess.CompareNumber(number, answer);
         System.out.println(number);
-        //pop up, 先写出来后面用---------------------------------------------------------
+        count--;
         /*Wrong number pop op*/
         AlertDialog.Builder prompt = new AlertDialog.Builder(Gaming.this);
         prompt.setTitle("Oops, wrong number");
-        //prompt.setMessage("message from the result");//fill it out
         prompt.setCancelable(false);//remain show
         prompt.setPositiveButton("Try again", new DialogInterface.OnClickListener() {
             @Override
@@ -60,12 +61,8 @@ public class Gaming extends AppCompatActivity {
                 //do nothing
             }
         });
-        //AlertDialog wrongNumber = prompt.create();
-        //wrongNumber.show();
         /*Right number pop up*/
         AlertDialog.Builder winLose = new AlertDialog.Builder(Gaming.this);
-        //right.setTitle("Congratulations");
-        //right.setMessage("You guess the right number");
         winLose.setCancelable(false);
         winLose.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
@@ -74,19 +71,20 @@ public class Gaming extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        //AlertDialog rightNumber = right.create();
-        //rightNumber.show();
         //-----------------------------------------------------------------------
         if(s.equals("Close") || s.equals("Try a smaller number")){
-            prompt.setMessage(s);
-            AlertDialog wrongNumber = prompt.create();
-            wrongNumber.show();
-        }
-        else if(s.equals("You LOSE")){
-            winLose.setTitle("GG");
-            winLose.setMessage("GG");
-            AlertDialog winLosePopup = winLose.create();
-            winLosePopup.show();
+            if(count < 1){
+                winLose.setTitle("GG");
+                winLose.setMessage("GG");
+                AlertDialog winLosePopup = winLose.create();
+                winLosePopup.show();
+            }
+            else{
+                prompt.setMessage(s);
+                AlertDialog wrongNumber = prompt.create();
+                wrongNumber.show();
+                attempt.setText("You have " + count + " attempt(s) left");
+            }
         }
         else if(s.equals("YOU WIN")){
             winLose.setTitle("nb");
@@ -94,8 +92,6 @@ public class Gaming extends AppCompatActivity {
             AlertDialog rightNumber = winLose.create();
             rightNumber.show();
         }
-        //下面这行用来找地方输出s，上面几行不用动
-        //((TextView)findViewById(R.id.textView7)).setText(s);
     }
     public void toMainPage(View v){
         //switch to main page
