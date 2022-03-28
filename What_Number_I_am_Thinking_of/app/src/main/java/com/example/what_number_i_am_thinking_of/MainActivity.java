@@ -61,8 +61,8 @@ public class MainActivity extends AppCompatActivity {
                         checkedItem[0] = i;
                         //GuessingNumber g = new GuessingNumber();
                         GuessingNumber guess = new GuessingNumber();
-                        guess.setDifficulty(difficulty[i]);
-                        guess.GenerateNumber(guess.getDifficulty());
+                        /*guess.setDifficulty(difficulty[i]);
+                        guess.GenerateNumber(guess.getDifficulty());*/
                         Intent setDiff = new Intent(getApplicationContext(), Gaming.class);
                         setDiff.putExtra("message_key", difficulty[i]);
                         startActivity(setDiff);

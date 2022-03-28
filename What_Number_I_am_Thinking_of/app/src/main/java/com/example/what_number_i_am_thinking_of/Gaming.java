@@ -12,7 +12,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class Gaming extends AppCompatActivity {
-
+    int answer;
     @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,8 +22,12 @@ public class Gaming extends AppCompatActivity {
         String diff = getDiff.getStringExtra("message_key");
         GuessingNumber guess = new GuessingNumber();
         TextView interval = (TextView) findViewById(R.id.interval);
+        guess.setDifficulty(diff);
+        answer = guess.GenerateNumber(guess.getDifficulty());
+        System.out.println(answer);
         //interval.setText(diff);
         if (diff.equals("Easy")){
+
             //guess.GenerateNumber("Easy");
             interval.setText("0 to 30");
         }
@@ -40,10 +44,10 @@ public class Gaming extends AppCompatActivity {
     public void submitNumber(View v){
         EditText getNumber = (EditText) findViewById(R.id.getNumber);
         String gN = getNumber.getText().toString();
-        int number = (int) Double.parseDouble(gN);
+        int number = Integer.parseInt(gN);
         GuessingNumber guess = new GuessingNumber();
-        String s = guess.CompareNumber(number);
-
+        String s = guess.CompareNumber(number, answer);
+        System.out.println(number);
         //pop up, 先写出来后面用---------------------------------------------------------
         /*Wrong number pop op*/
         AlertDialog.Builder prompt = new AlertDialog.Builder(Gaming.this);
