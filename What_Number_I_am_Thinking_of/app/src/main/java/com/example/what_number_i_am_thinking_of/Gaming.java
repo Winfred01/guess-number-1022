@@ -14,6 +14,7 @@ import android.widget.TextView;
 public class Gaming extends AppCompatActivity {
     int answer;
     int count = 10;
+    //测试
 
     @SuppressLint("SetTextI18n")
     @Override
