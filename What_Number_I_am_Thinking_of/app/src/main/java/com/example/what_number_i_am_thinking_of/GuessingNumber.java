@@ -17,7 +17,7 @@ public class GuessingNumber {
     public String getDifficulty(){
         return difficulty;
     }
-    public void GenerateNumber(String difficulty) {
+    public int GenerateNumber(String difficulty) {
         //生成随机数
         int max=30;
         if (difficulty.equals("Easy")){
@@ -30,10 +30,11 @@ public class GuessingNumber {
             max=100;//0-100
         }
         answer= (int) Math.floor((Math.random() * max) + 1);
-        System.out.println(answer);
+        return answer;
+        //System.out.println(answer);
     }
 
-    public String CompareNumber(int Number) {
+    public String CompareNumber(int Number, int answer) {
         //比较随机数，
         //返回结果
         this.number=Number;
@@ -77,7 +78,7 @@ public class GuessingNumber {
     }
 
     public void submit(int number){  //link to submit button
-        CompareNumber(number);
+        //CompareNumber(number);
     }
     public void getGuess(){
         //读取输入值

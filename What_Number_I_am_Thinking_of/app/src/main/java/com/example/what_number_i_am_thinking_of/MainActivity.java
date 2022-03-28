@@ -61,8 +61,8 @@ public class MainActivity extends AppCompatActivity {
                         checkedItem[0] = i;
                         //GuessingNumber g = new GuessingNumber();
                         GuessingNumber guess = new GuessingNumber();
-                        guess.setDifficulty(difficulty[i]);
-                        guess.GenerateNumber(guess.getDifficulty());
+                        /*guess.setDifficulty(difficulty[i]);
+                        guess.GenerateNumber(guess.getDifficulty());*/
                         Intent setDiff = new Intent(getApplicationContext(), Gaming.class);
                         setDiff.putExtra("message_key", difficulty[i]);
                         startActivity(setDiff);
@@ -75,8 +75,20 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(intent);*/
                     }
                 });
+                selectDifficulty.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.cancel();;
+                    }
+                });
                 AlertDialog diffDialog = selectDifficulty.create();
                 diffDialog.show();
+            }
+        });
+        enterName.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.cancel();
             }
         });
         AlertDialog dialog = enterName.create();
