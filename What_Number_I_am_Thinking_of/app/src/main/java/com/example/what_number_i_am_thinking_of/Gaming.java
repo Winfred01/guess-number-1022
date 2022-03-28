@@ -73,10 +73,10 @@ public class Gaming extends AppCompatActivity {
             }
         });
         //-----------------------------------------------------------------------
-        if(s.equals("Close") || s.equals("Try a smaller number") || s.equals("Try a biger number")){
+        if(s.equals("You are close, the difference is within 10") || s.equals("You can try a smaller number") || s.equals("You can try a bigger number")){
             if(count < 1){
-                winLose.setTitle("GG");
-                winLose.setMessage("GG");
+                winLose.setTitle("GG, you lose");
+                winLose.setMessage("Unlucky, you lost all attempts");
                 AlertDialog winLosePopup = winLose.create();
                 winLosePopup.show();
             }
@@ -88,11 +88,12 @@ public class Gaming extends AppCompatActivity {
             }
         }
         else if(s.equals("YOU WIN")){
-            winLose.setTitle("nb");
-            winLose.setMessage("nb");
+            winLose.setTitle("Congratulations!");
+            winLose.setMessage("You guessed the right number, you win");
             AlertDialog rightNumber = winLose.create();
             rightNumber.show();
         }
+        getNumber.setText(null);
     }
     public void toMainPage(View v){
         //switch to main page

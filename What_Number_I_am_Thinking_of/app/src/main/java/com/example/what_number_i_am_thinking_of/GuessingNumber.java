@@ -56,19 +56,19 @@ public class GuessingNumber {
         if(result<0){
             counter+=1;
             if(result>-10){
-                Result= "Close";
+                Result= "You are close, the difference is within 10";
             }
             else{
-                Result= "Try a smaller number";
+                Result= "You can try a smaller number";
             }
         }
         if(result>0){
             counter+=1;
             if(result<10){
-                Result= "Close";
+                Result= "You are close, the difference is within 10";
             }
             else{
-                Result= "Try a biger number";
+                Result= "You can try a bigger number";
             }
         }
         if(counter==10){
