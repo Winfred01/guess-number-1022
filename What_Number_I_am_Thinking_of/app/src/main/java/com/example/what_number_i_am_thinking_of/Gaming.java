@@ -10,11 +10,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import java.util.*;
 
 public class Gaming extends AppCompatActivity {
     int answer;
     int count = 10;
-    //测试1
+    String currentDiff;
+    String userName;
+
+    ArrayList<String> getNumbers = new ArrayList<>();
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -23,13 +27,15 @@ public class Gaming extends AppCompatActivity {
         setContentView(R.layout.activity_gaming);
         Intent getDiff = getIntent();
         String diff = getDiff.getStringExtra("message_key");
+        currentDiff = diff;
+        userName = getDiff.getStringExtra("name_key");
         GuessingNumber guess = new GuessingNumber();
         TextView interval = (TextView) findViewById(R.id.interval);
         TextView attempt = (TextView) findViewById(R.id.attempts);
         guess.setDifficulty(diff);
         answer = guess.GenerateNumber(guess.getDifficulty());
         System.out.println(answer);
-        //interval.setText(diff);
+
         if (diff.equals("Easy")){
             interval.setText("0 to 30");
         }
@@ -47,10 +53,10 @@ public class Gaming extends AppCompatActivity {
         EditText getNumber = (EditText) findViewById(R.id.getNumber);
         TextView attempt = (TextView) findViewById(R.id.attempts);
         String gN = getNumber.getText().toString();
+        getNumbers.add(gN);
         int number = Integer.parseInt(gN);
         GuessingNumber guess = new GuessingNumber();
         String s = guess.CompareNumber(number, answer);
-        System.out.println(number);
         count--;
         /*Wrong number pop op*/
         AlertDialog.Builder prompt = new AlertDialog.Builder(Gaming.this);
@@ -69,6 +75,10 @@ public class Gaming extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 Intent intent = new Intent(Gaming.this, MainActivity.class);
+                intent.putExtra("diff", currentDiff);
+                intent.putExtra("name", userName);
+                intent.putExtra("answer", String.valueOf(answer));
+                intent.putExtra("number", getNumbers);
                 startActivity(intent);
             }
         });

@@ -12,20 +12,14 @@ import android.widget.EditText;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-
+import java.util.*;
 
 public class MainActivity extends AppCompatActivity {
     private TextView displayHistory;
     private String difficulty;
+    String getName;
+    String getDiff;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,15 +37,10 @@ public class MainActivity extends AppCompatActivity {
         enterName.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int which) {
-                /*if (!displayHistory.getText().toString().equals("")){
-                    EditText getName = findViewById(R.id.Name);
-                    String name = getName.getText().toString();
-                    try {
-                        writeMatchHistory("Name: " + name);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }*/
+
+                EditText name = customLayout.findViewById(R.id.Name);
+                getName = name.getText().toString();
+
                 AlertDialog.Builder selectDifficulty = new AlertDialog.Builder(MainActivity.this);
                 selectDifficulty.setTitle("Please select difficulty: ");
                 final String[] difficulty = new String[]{"Easy", "Normal", "Hard"};
@@ -59,18 +48,11 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         checkedItem[0] = i;
-                        //GuessingNumber g = new GuessingNumber();
-                        GuessingNumber guess = new GuessingNumber();
+                        getDiff = difficulty[i];
                         Intent setDiff = new Intent(getApplicationContext(), Gaming.class);
                         setDiff.putExtra("message_key", difficulty[i]);
+                        setDiff.putExtra("name_key", getName);
                         startActivity(setDiff);
-                        /*try {
-                            writeMatchHistory("Difficulty: " + difficulty[i]);
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                        Intent intent = new Intent(MainActivity.this, Gaming.class);
-                        startActivity(intent);*/
                     }
                 });
                 selectDifficulty.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -79,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
                         dialogInterface.cancel();;
                     }
                 });
+
                 AlertDialog diffDialog = selectDifficulty.create();
                 diffDialog.show();
             }
@@ -89,53 +72,28 @@ public class MainActivity extends AppCompatActivity {
                 dialogInterface.cancel();
             }
         });
+
         AlertDialog dialog = enterName.create();
         dialog.show();
     }
+
     public void toHistoryPage(View v){
         //switch to Match History
-        Intent intent = new Intent(MainActivity.this, History.class);
+        Intent getDiff = getIntent();
+
+        String diff = getDiff.getStringExtra("diff");
+        String name = getDiff.getStringExtra("name");
+        String answer = getDiff.getStringExtra("answer");
+
+
+        Intent intent = new Intent(getApplicationContext(), History.class);
+        intent.putExtra("getName", name);
+        intent.putExtra("getDiff", diff);
+        intent.putExtra("getAnswer", answer);
+        if(getDiff.getStringArrayListExtra("number") != null){
+            ArrayList<String> numbersList = getDiff.getStringArrayListExtra("number");
+            intent.putExtra("getNumbers", numbersList);
+        }
         startActivity(intent);
-        //displayHistory = findViewById(R.id.MatchHistoryView);
-        /*try {
-            if(readFromFile() != null)
-            {
-                displayHistory.setText(readFromFile());
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }*/
     }
-
-    public void writeMatchHistory(String message) throws IOException {
-        try {
-            OutputStreamWriter outputStreamWriter = new OutputStreamWriter(openFileOutput("History.txt", Context.MODE_PRIVATE));
-            outputStreamWriter.write(message);
-            outputStreamWriter.close();
-        }
-        catch(FileNotFoundException e){
-            e.printStackTrace();
-        }
-    }
-    /*public String readFromFile() throws IOException {
-        String result = "";
-        InputStream is = openFileInput("History.txt");
-        if(is != null)
-        {
-            InputStreamReader inputStreamReader = new InputStreamReader(is);
-            BufferedReader br = new BufferedReader(inputStreamReader);
-            String temp = "";
-            StringBuilder stringBuilder = new StringBuilder();
-
-            while((temp = br.readLine()) != null)
-            {
-                stringBuilder.append(temp);
-                stringBuilder.append("\n");
-            }
-
-            is.close();
-            result = stringBuilder.toString();
-        }
-        return result;
-    }*/
 }
