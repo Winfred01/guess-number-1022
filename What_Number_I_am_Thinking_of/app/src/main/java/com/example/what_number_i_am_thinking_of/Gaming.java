@@ -73,7 +73,7 @@ public class Gaming extends AppCompatActivity {
             }
         });
         //-----------------------------------------------------------------------
-        if(s.equals("Close") || s.equals("Try a smaller number")){
+        if(s.equals("Close") || s.equals("Try a smaller number") || s.equals("Try a biger number")){
             if(count < 1){
                 winLose.setTitle("GG");
                 winLose.setMessage("GG");
