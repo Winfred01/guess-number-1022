@@ -25,7 +25,7 @@ public class History extends AppCompatActivity {
         String name = getName.getStringExtra("getName");
         String diff = getName.getStringExtra("getDiff");
         String answer = getName.getStringExtra("getAnswer");
-
+        //display the history
         if(getName.getStringArrayListExtra("getNumbers") != null){
             ArrayList<String> List = getName.getStringArrayListExtra("getNumbers");
             history.append("Name: " + name + "\n");
