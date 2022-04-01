@@ -48,7 +48,7 @@ public class GuessingNumber {
 
     public String Result(int result) {
         //return result
-        String Result="erro";
+        String Result="error";
         if(result==0) {
             Result = "YOU WIN";
         }
