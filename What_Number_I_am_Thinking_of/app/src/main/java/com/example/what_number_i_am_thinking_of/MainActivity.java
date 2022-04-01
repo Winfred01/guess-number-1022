@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
                         checkedItem[0] = i;
                         getDiff = difficulty[i];
                         Intent setDiff = new Intent(getApplicationContext(), Gaming.class);
-                        setDiff.putExtra("message_key", difficulty[i]);
+                        setDiff.putExtra("message_key", difficulty[i]);//send data to gaming page
                         setDiff.putExtra("name_key", getName);
                         startActivity(setDiff);
                     }
@@ -76,14 +76,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void toHistoryPage(View v){
-        //switch to Match History
+        //switch to Review the Game
         Intent getDiff = getIntent();
-
+        //get data from gaming page
         String diff = getDiff.getStringExtra("diff");
         String name = getDiff.getStringExtra("name");
         String answer = getDiff.getStringExtra("answer");
 
-
+        //send data to review the game page
         Intent intent = new Intent(getApplicationContext(), History.class);
         intent.putExtra("getName", name);
         intent.putExtra("getDiff", diff);

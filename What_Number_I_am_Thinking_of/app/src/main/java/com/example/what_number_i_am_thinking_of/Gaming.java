@@ -74,6 +74,7 @@ public class Gaming extends AppCompatActivity {
         winLose.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
+                //send data to main page
                 Intent intent = new Intent(Gaming.this, MainActivity.class);
                 intent.putExtra("diff", currentDiff);
                 intent.putExtra("name", userName);
@@ -83,6 +84,7 @@ public class Gaming extends AppCompatActivity {
             }
         });
         //-----------------------------------------------------------------------
+        /*prompt message*/
         if(s.equals("You are close, the difference is within 10") || s.equals("You can try a smaller number") || s.equals("You can try a bigger number")){
             if(count < 1){
                 winLose.setTitle("GG, you lose");
@@ -106,7 +108,7 @@ public class Gaming extends AppCompatActivity {
         getNumber.setText(null);
     }
     public void toMainPage(View v){
-        //switch to main page
+        //switch to main page, quit the game
         Intent intent = new Intent(Gaming.this, MainActivity.class);
         startActivity(intent);
     }
