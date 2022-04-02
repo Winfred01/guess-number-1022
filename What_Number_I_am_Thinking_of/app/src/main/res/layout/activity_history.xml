@@ -22,6 +22,7 @@
         android:id="@+id/MatchHistoryView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:scrollbars="vertical"
         android:textColor="#4E342E"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"

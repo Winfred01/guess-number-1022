@@ -1,0 +1,25 @@
+Hello, Welcome to our game!
+
+This game is developed by Ruixin Zhang, Wuyang Dai, and Chenxi Liu
+
+Something to remind you before you play it:
+
+IMPORTANT: If you can not run the program, go github to download the file. If that not works too, please email me.
+
+1: We suggest you to use pixel 2 to play the game to get the best experience, other devices are also fine.
+
+2: Please follow the steps when you play the game. We are not responsible for any bugs caused by inappropriate operation.
+
+3: Sometimes the emulation might terminate due to android studio version too old or device lagging. So try to update it or restart android studio.
+
+4: When you submit the number you guess, please make sure that there is a number in the text box, we are not responsible for any bugs caused by no
+number in the text box (it may return a null value and cause program crush).
+
+5: When you enter the number, please only enter integer because the correct answer will only be integer.
+
+6: You can cheat by looking the terminal (▶run), the correct answer will be shown there. Hope you don't lol.
+
+7: You can see your last game record when you finish a game, if no game played, there are no history displayed. And if you click back when you done
+reviewing you record, the data will be cleared.
+
+8: Enjoy you time. (●'◡'●)

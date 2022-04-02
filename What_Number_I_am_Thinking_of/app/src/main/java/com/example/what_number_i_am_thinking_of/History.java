@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -20,6 +21,7 @@ public class History extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history);
         TextView history = (TextView) findViewById(R.id.MatchHistoryView);
+
         Intent getName = getIntent();
 
         String name = getName.getStringExtra("getName");
@@ -49,7 +51,7 @@ public class History extends AppCompatActivity {
         else{
             history.setText("No history available yet, play a game to see history");
         }
-
+        history.setMovementMethod(new ScrollingMovementMethod());
     }
 
     public void toMainPage(View v){
